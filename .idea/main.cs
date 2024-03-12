@@ -1,18 +1,28 @@
-﻿public class Calculator {
-    public static double calculateAverage(int[] numbers) {
-        if (numbers.length == 0) {
-            throw new IllegalArgumentException("Array must not be empty");
+﻿using System;
+
+public class Calculator
+{
+    public static int FindMax(int[] numbers)
+    {
+        if (numbers.Length == 0)
+        {
+            throw new ArgumentException("Array must not be empty");
         }
-        
-        int sum = 0;
-        for (int num : numbers) {
-            sum += num;
+
+        int max = numbers[0];
+        foreach (int num in numbers)
+        {
+            if (num > max)
+            {
+                max = num;
+            }
         }
-        return (double) sum / numbers.length;
+        return max;
     }
 
-    public static void main(String[] args) {
-        int[] numbers = {1, 2, 3, 4, 5};
-        System.out.println("Average: " + calculateAverage(numbers));
+    public static void Main(string[] args)
+    {
+        int[] numbers = { 1, 5, 3, 7, 2 };
+        Console.WriteLine("Maximum value: " + FindMax(numbers));
     }
 }
